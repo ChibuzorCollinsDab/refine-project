@@ -155,7 +155,6 @@ import {
 import { HttpError, getDefaultFilter, useGo } from "@refinedev/core";
 import { GetFieldsFromList } from "@refinedev/nestjs-query";
 import { Input, Space, Table } from "antd";
-import { ColumnProps } from "antd/lib/table";
 
 export const CompanyList = ({ children }: React.PropsWithChildren) => {
   const go = useGo();
