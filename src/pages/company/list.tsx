@@ -16,6 +16,7 @@
 // import { HttpError, getDefaultFilter, useGo } from "@refinedev/core";
 // import { GetFieldsFromList } from "@refinedev/nestjs-query";
 // import { Input, Space, Table } from "antd";
+// import { ColumnProps } from "antd/lib/table";
 
 // export const CompanyList = ({ children }: React.PropsWithChildren) => {
 //   const go = useGo();
@@ -87,7 +88,7 @@
 //             ...tableProps.pagination,
 //           }}
 //         >
-//           <Table.Column<Company>
+//           <Table.ColumnProps<Company>
 //             dataIndex="name"
 //             title="Company"
 //             defaultFilteredValue={getDefaultFilter("id", filters)}
@@ -220,6 +221,7 @@ export const CompanyList = ({ children }: React.PropsWithChildren) => {
           />
         )}
       >
+      
         <Table
           {...tableProps}
           pagination={{
@@ -227,6 +229,7 @@ export const CompanyList = ({ children }: React.PropsWithChildren) => {
           }}
         >
           <Table.Column<Company>
+            //@ts-ignore
             dataIndex="name"
             title="Company"
             defaultFilteredValue={getDefaultFilter("id", filters)}
@@ -238,17 +241,14 @@ export const CompanyList = ({ children }: React.PropsWithChildren) => {
             )}
             render={(value, record) => (
               <Space>
-                <CustomAvatar
-                  shape="square"
-                  name={record.name}
-                  src={record.avatarUrl}
-                />
+                <CustomAvatar shape="square" name={record.name} src={record.avatarUrl} />
                 <Text style={{ whiteSpace: "nowrap" }}>{record.name}</Text>
               </Space>
             )}
           />
 
           <Table.Column<Company>
+            //@ts-ignore
             dataIndex="totalRevenue"
             title="Open Deals"
             render={(value, company) => (
@@ -259,6 +259,7 @@ export const CompanyList = ({ children }: React.PropsWithChildren) => {
           />
 
           <Table.Column<Company>
+            //@ts-ignore
             dataIndex="id"
             title="Actions"
             render={(value) => (
